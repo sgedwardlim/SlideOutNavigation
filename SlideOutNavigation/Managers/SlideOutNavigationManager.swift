@@ -6,22 +6,24 @@
 //  Copyright © 2017 Edward. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct SlideOutNavigationEvents {
     let mainViewControllerUpdated = Event()
+    let leftViewControllerPriorUpdate = Event()
     let leftViewControllerUpdated = Event()
     let rightViewControllerUpdated = Event()
 }
 
 protocol SlideOutNavigationManagerProtocol {
-    static var shared: SlideOutNavigationManagerProtocol { get }
     var events: SlideOutNavigationEvents { get }
     
+    var slideOutNavigationController: SlideOutNavigationController! { get }
     var mainViewController: UIViewController! { get }
     var leftViewController: UIViewController! { get }
     var rightViewController: UIViewController? { get }
     
+    func initalize(slideOutNavigationController: SlideOutNavigationController)
     func update(mainViewController: UIViewController, leftViewController: UIViewController, rightViewController: UIViewController?)
     func update(mainViewController: UIViewController)
     func update(leftViewController: UIViewController)
@@ -30,14 +32,20 @@ protocol SlideOutNavigationManagerProtocol {
 
 class SlideOutNavigationManager: SlideOutNavigationManagerProtocol {
     static var shared: SlideOutNavigationManagerProtocol = SlideOutNavigationManager()
-    let events: SlideOutNavigationEvents = SlideOutNavigationEvents()
+    let events = SlideOutNavigationEvents()
     
+    var slideOutNavigationController: SlideOutNavigationController!
     var mainViewController: UIViewController!
     var leftViewController: UIViewController!
     var rightViewController: UIViewController?
     
     private init() {
         
+    }
+    
+    func initalize(slideOutNavigationController: SlideOutNavigationController) {
+        self.slideOutNavigationController = slideOutNavigationController
+        NSLog("slideOutNavigationController intialization: \(slideOutNavigationController)")
     }
     
     func update(mainViewController: UIViewController, leftViewController: UIViewController, rightViewController: UIViewController?) {
@@ -49,9 +57,11 @@ class SlideOutNavigationManager: SlideOutNavigationManagerProtocol {
     func update(mainViewController: UIViewController) {
         self.mainViewController = mainViewController
         events.mainViewControllerUpdated.trigger()
+        NSLog("main view controller updated")
     }
     
     func update(leftViewController: UIViewController) {
+        events.leftViewControllerPriorUpdate.trigger()
         self.leftViewController = leftViewController
         events.leftViewControllerUpdated.trigger()
     }

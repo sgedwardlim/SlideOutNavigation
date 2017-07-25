@@ -10,10 +10,17 @@ import UIKit
 
 class LeftSlideOutNavigationViewController: UIViewController {
     private let navigationManager: SlideOutNavigationManagerProtocol
+    private let leftNavigationManager: LeftSlideOutNavigationManagerProtocol
+    
+    private let slideOutNavigationController: SlideOutNavigationController
+    
+//    private let animator = PresentMainSlideOutAnimator()
     
     // MARK: - Setup
     init() {
         navigationManager = SlideOutNavigationManager.shared
+        leftNavigationManager = LeftSlideOutNavigationManager.shared
+        slideOutNavigationController = navigationManager.slideOutNavigationController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,9 +32,17 @@ class LeftSlideOutNavigationViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         
+        navigationManager.events.leftViewControllerPriorUpdate.subscribe { [weak self] in
+            self?.removeChildViewController()
+        }
+        
         addChildViewController()
         navigationManager.events.leftViewControllerUpdated.subscribe { [weak self] in
             self?.addChildViewController()
+        }
+        
+        leftNavigationManager.events.menuItemSelection.subscribe { [weak self] in
+            self?.menuItemSelection()
         }
     }
     
@@ -48,26 +63,24 @@ class LeftSlideOutNavigationViewController: UIViewController {
     
     private func setupContainerView() {
         view.addSubview(containerView)
+        containerView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: hiddenDismissButton.leftAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func addChildViewController() {
-        let viewController = navigationManager.leftViewController!
-        addChildViewController(viewController)
-        containerView.addSubview(viewController.view)
-        viewController.view.frame = containerView.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        viewController.didMove(toParentViewController: self)
+        addChildViewController(navigationManager.leftViewController)
+        containerView.addSubview(navigationManager.leftViewController.view)
+        navigationManager.leftViewController.view.frame = containerView.bounds
+        navigationManager.leftViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        navigationManager.leftViewController.didMove(toParentViewController: self)
     }
     
     private func removeChildViewController() {
-        let viewController = navigationManager.leftViewController!
-        viewController.willMove(toParentViewController: nil)
-        viewController.view.removeFromSuperview()
-        viewController.removeFromParentViewController()
+        navigationManager.leftViewController.willMove(toParentViewController: nil)
+        navigationManager.leftViewController.view.removeFromSuperview()
+        navigationManager.leftViewController.removeFromParentViewController()
     }
     
     // MARK: - UIView Components
@@ -87,6 +100,13 @@ class LeftSlideOutNavigationViewController: UIViewController {
     // MARK: - Actions
     func handleDismissSelection() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func menuItemSelection() {
+//        slideOutNavigationController.transitioningDelegate = animator
+        dismiss(animated: true, completion: nil)
+//        NSLog("slideOutNavigationController: \(slideOutNavigationController)")
+//        present(slideOutNavigationController, animated: true, completion: nil)
     }
 }
 

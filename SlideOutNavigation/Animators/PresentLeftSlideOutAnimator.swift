@@ -36,7 +36,6 @@ class PresentLeftSlideOutAnimator: NSObject, UIViewControllerAnimatedTransitioni
             blurEffectView.frame = oldSnapshot.frame
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             oldSnapshot.addSubview(blurEffectView)
-            NSLog("SNAPSHOT \(oldSnapshot)")
         }
         
         oldSnapshot.frame.origin.x = initMenuX
