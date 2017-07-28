@@ -12,15 +12,10 @@ class LeftSlideOutNavigationViewController: UIViewController {
     private let navigationManager: SlideOutNavigationManagerProtocol
     private let leftNavigationManager: LeftSlideOutNavigationManagerProtocol
     
-    private let slideOutNavigationController: SlideOutNavigationController
-    
-//    private let animator = PresentMainSlideOutAnimator()
-    
     // MARK: - Setup
     init() {
         navigationManager = SlideOutNavigationManager.shared
         leftNavigationManager = LeftSlideOutNavigationManager.shared
-        slideOutNavigationController = navigationManager.slideOutNavigationController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -63,7 +58,7 @@ class LeftSlideOutNavigationViewController: UIViewController {
     
     private func setupContainerView() {
         view.addSubview(containerView)
-        containerView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: hiddenDismissButton.leftAnchor).isActive = true
@@ -103,10 +98,7 @@ class LeftSlideOutNavigationViewController: UIViewController {
     }
     
     func menuItemSelection() {
-//        slideOutNavigationController.transitioningDelegate = animator
         dismiss(animated: true, completion: nil)
-//        NSLog("slideOutNavigationController: \(slideOutNavigationController)")
-//        present(slideOutNavigationController, animated: true, completion: nil)
     }
 }
 

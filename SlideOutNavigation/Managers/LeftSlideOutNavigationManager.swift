@@ -51,20 +51,18 @@ public class LeftSlideOutNavigationManager: LeftSlideOutNavigationManagerProtoco
                 menuItems.append(item)
             }
         }
-        NSLog("Initalization of LeftSlideOutMenuSections completed")
         self.sections = sections
         self.menuItems = menuItems
     }
     
     public func mapToViewController(viewTitle: String) -> UIViewController {
         guard let vc = dict[viewTitle] else {
-            fatalError("ERROR: \(viewTitle) did not map to any existings View Controllers in LeftSlideOutNavigationManager")
+            fatalError("ERROR: \(viewTitle) did not map to any existing View Controllers in LeftSlideOutNavigationManager")
         }
         return vc
     }
     
     public func menuItemSelection(viewTitle: String) {
-        NSLog("menu item selected: \(viewTitle), view controller class: \(NSStringFromClass(mapToViewController(viewTitle: viewTitle).classForCoder))")
         let viewController = mapToViewController(viewTitle: viewTitle)
         SlideOutNavigationManager.shared.update(mainViewController: viewController)
         events.menuItemSelection.trigger()
