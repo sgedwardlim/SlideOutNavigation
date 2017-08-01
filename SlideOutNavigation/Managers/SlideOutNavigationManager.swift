@@ -29,7 +29,10 @@ protocol SlideOutNavigationManagerProtocol {
 }
 
 class SlideOutNavigationManager: SlideOutNavigationManagerProtocol {
-    static var shared: SlideOutNavigationManagerProtocol = SlideOutNavigationManager()
+    static var shared: SlideOutNavigationManagerProtocol {
+        return SlideOutNavigationManager()
+    }
+    
     let events = SlideOutNavigationEvents()
     
     var mainViewController: UIViewController!

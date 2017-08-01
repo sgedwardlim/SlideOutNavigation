@@ -32,7 +32,7 @@ class PresentLeftSlideOutAnimator: NSObject, UIViewControllerAnimatedTransitioni
             oldSnapshot.isUserInteractionEnabled = false
             
             blurEffectView = UIVisualEffectView()
-            blurEffectView.alpha = 0.8
+            blurEffectView.alpha = 0.5
             blurEffectView.frame = oldSnapshot.frame
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             oldSnapshot.addSubview(blurEffectView)
@@ -50,7 +50,7 @@ class PresentLeftSlideOutAnimator: NSObject, UIViewControllerAnimatedTransitioni
             
             self.oldSnapshot.frame.origin.x = self.isPresenting ? menuWidth : 0
             menuView.frame.origin.x = self.isPresenting ? 0: -menuWidth
-            self.blurEffectView.effect = self.isPresenting ? UIBlurEffect(style: .regular) : nil
+            self.blurEffectView.effect = self.isPresenting ? UIBlurEffect(style: .dark) : nil
             
         }, completion: {_ in
             mainView.isHidden = false

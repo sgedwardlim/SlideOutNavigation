@@ -18,23 +18,30 @@ public protocol LeftSlideOutNavigationManagerProtocol {
     
     var sections: [LeftSlideOutMenuSection] { get }
     var menuItems: [LeftSlideOutMenuItem] { get }
-    var dict: [String: UIViewController] { get }
+//    var dict: [String: UIViewController] { get }
 
     func update(leftSlideOutMenuSections: [LeftSlideOutMenuSection])
     func mapToViewController(viewTitle: String) -> UIViewController
     func menuItemSelection(viewTitle: String)
 }
 
+// todo: maybe this doesnt have to be public????
 public class LeftSlideOutNavigationManager: LeftSlideOutNavigationManagerProtocol {
-    public static var shared: LeftSlideOutNavigationManagerProtocol = LeftSlideOutNavigationManager()
+//    public static var shared: LeftSlideOutNavigationManagerProtocol = LeftSlideOutNavigationManager(navigationManager: SlideOutNavigationManager.shared)
+    public static var shared: LeftSlideOutNavigationManagerProtocol {
+        return LeftSlideOutNavigationManager(navigationManager: SlideOutNavigationManager.shared)
+    }
+    
+    private let navigationManager: SlideOutNavigationManagerProtocol
+    
     public let events: LeftSlideOutNavigationEvents = LeftSlideOutNavigationEvents()
     
     public private(set) var sections: [LeftSlideOutMenuSection] = []
     public private(set) var menuItems: [LeftSlideOutMenuItem] = []
-    public private(set) var dict: [String: UIViewController] = [:]
+    private var dict: [String: UIViewController] = [:]
     
-    private init() {
-        
+    private init(navigationManager: SlideOutNavigationManagerProtocol) {
+        self.navigationManager = navigationManager
     }
     
     public func update(leftSlideOutMenuSections: [LeftSlideOutMenuSection]) {
@@ -64,7 +71,7 @@ public class LeftSlideOutNavigationManager: LeftSlideOutNavigationManagerProtoco
     
     public func menuItemSelection(viewTitle: String) {
         let viewController = mapToViewController(viewTitle: viewTitle)
-        SlideOutNavigationManager.shared.update(mainViewController: viewController)
+        navigationManager.update(mainViewController: viewController)
         events.menuItemSelection.trigger()
     }
 }

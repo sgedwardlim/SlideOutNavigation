@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SlideOutNavigationBarItemProperties {
+public final class SlideOutNavigationBarItemProperties {
     // titleLabel properties
     static var title: String = ""
     static var titleAlignment: NSTextAlignment = .left
@@ -53,6 +53,13 @@ public class SlideOutNavigationController: UINavigationController {
         }
     }
     
+    private func updateRootViewController() {
+        self.viewControllers = [navigationManager.mainViewController]
+        navigationManager.mainViewController.viewDidLoad()
+        navigationManager.mainViewController.viewDidAppear(false)
+        updateNavigationBarItems()
+    }
+    
     private func updateNavigationBarItems() {
         setupNavigationBarTitleView()
         setupLeftNavigationBarItems()
@@ -61,10 +68,6 @@ public class SlideOutNavigationController: UINavigationController {
         navigationBar.isTranslucent = false // doesn't have to be here only set once
     }
     
-    private func updateRootViewController() {
-        self.viewControllers = [navigationManager.mainViewController]
-        updateNavigationBarItems()
-    }
     
     private func setupNavigationBarTitleView() {
         navigationManager.mainViewController.navigationItem.title = nil
@@ -135,12 +138,11 @@ public class SlideOutNavigationController: UINavigationController {
     
     // MARK: - UIBarButtonItem Actions
     func handleLeftMenuSelection() {
-        NSLog("handleLeftMenuSelection \(leftNavigationViewController), animator: \(animator)")
         leftNavigationViewController.transitioningDelegate = animator
         present(leftNavigationViewController, animated: true, completion: nil)
     }
 
     func handleRightMenuSelection() {
-        NSLog("handleRightMenuSelection")
+
     }
 }
