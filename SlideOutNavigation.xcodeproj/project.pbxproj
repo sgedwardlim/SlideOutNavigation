@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B352FC41F2F0F6900B038E1 /* TestLeftSlideOutNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FC31F2F0F6900B038E1 /* TestLeftSlideOutNavigationManager.swift */; };
-		2B352FC61F2F0F8600B038E1 /* TestSlideOutNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FC51F2F0F8600B038E1 /* TestSlideOutNavigationManager.swift */; };
-		2B352FC81F30657100B038E1 /* MockSlideOutNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FC71F30657100B038E1 /* MockSlideOutNavigationManager.swift */; };
+		2B352FCA1F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FC91F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift */; };
+		2B352FD01F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FCF1F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift */; };
+		2B352FD21F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FD11F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift */; };
+		2B352FD51F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FD41F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift */; };
 		2B3676DB1F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676D91F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift */; };
 		2B3676DC1F29AD3D0066D36F /* SlideOutNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676DA1F29AD3D0066D36F /* SlideOutNavigationViewController.swift */; };
 		2B3676E71F2AFA000066D36F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676E31F2AFA000066D36F /* Event.swift */; };
@@ -19,8 +20,6 @@
 		2BFF97511F23513900DCCDA3 /* SlideOutNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BFF97471F23513900DCCDA3 /* SlideOutNavigation.framework */; };
 		2BFF97561F23513900DCCDA3 /* SlideOutNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF97551F23513900DCCDA3 /* SlideOutNavigationTests.swift */; };
 		2BFF976F1F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF97621F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift */; };
-		2BFF97721F23515600DCCDA3 /* LeftSlideOutNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF97661F23515600DCCDA3 /* LeftSlideOutNavigationManager.swift */; };
-		2BFF97731F23515600DCCDA3 /* SlideOutNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF97671F23515600DCCDA3 /* SlideOutNavigationManager.swift */; };
 		2BFF97E01F24476A00DCCDA3 /* SlideOutNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BFF97DE1F24476A00DCCDA3 /* SlideOutNavigation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -35,9 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B352FC31F2F0F6900B038E1 /* TestLeftSlideOutNavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLeftSlideOutNavigationManager.swift; sourceTree = "<group>"; };
-		2B352FC51F2F0F8600B038E1 /* TestSlideOutNavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSlideOutNavigationManager.swift; sourceTree = "<group>"; };
-		2B352FC71F30657100B038E1 /* MockSlideOutNavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSlideOutNavigationManager.swift; sourceTree = "<group>"; };
+		2B352FC91F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSlideOutMenuViewController.swift; sourceTree = "<group>"; };
+		2B352FCF1F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutNavigationBarItemProperties.swift; sourceTree = "<group>"; };
+		2B352FD11F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSlideOutMenuNavigation.swift; sourceTree = "<group>"; };
+		2B352FD41F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLeftSlideOutMenuNavigation.swift; sourceTree = "<group>"; };
 		2B3676D91F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSlideOutNavigationViewController.swift; sourceTree = "<group>"; };
 		2B3676DA1F29AD3D0066D36F /* SlideOutNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutNavigationViewController.swift; sourceTree = "<group>"; };
 		2B3676E31F2AFA000066D36F /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -49,8 +49,6 @@
 		2BFF97551F23513900DCCDA3 /* SlideOutNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutNavigationTests.swift; sourceTree = "<group>"; };
 		2BFF97571F23513900DCCDA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BFF97621F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentLeftSlideOutAnimator.swift; sourceTree = "<group>"; };
-		2BFF97661F23515600DCCDA3 /* LeftSlideOutNavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSlideOutNavigationManager.swift; sourceTree = "<group>"; };
-		2BFF97671F23515600DCCDA3 /* SlideOutNavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutNavigationManager.swift; sourceTree = "<group>"; };
 		2BFF97DD1F24476A00DCCDA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BFF97DE1F24476A00DCCDA3 /* SlideOutNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideOutNavigation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,13 +72,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B352FC21F2F0F5600B038E1 /* Managers */ = {
+		2B352FD31F33185600B038E1 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				2B352FC31F2F0F6900B038E1 /* TestLeftSlideOutNavigationManager.swift */,
-				2B352FC51F2F0F8600B038E1 /* TestSlideOutNavigationManager.swift */,
+				2B352FD41F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift */,
 			);
-			path = Managers;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		2B3676E21F2AFA000066D36F /* Helpers */ = {
@@ -90,6 +87,7 @@
 				2B3676E41F2AFA000066D36F /* Interactor.swift */,
 				2B3676E51F2AFA000066D36F /* LeftSlideOutMenu.swift */,
 				2B3676E61F2AFA000066D36F /* MenuHelper.swift */,
+				2B352FCF1F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -117,7 +115,6 @@
 			children = (
 				2BFF97611F23515600DCCDA3 /* Animators */,
 				2B3676E21F2AFA000066D36F /* Helpers */,
-				2BFF97651F23515600DCCDA3 /* Managers */,
 				2BFF97691F23515600DCCDA3 /* Navigation */,
 				2BFF97DC1F24476A00DCCDA3 /* Supporting Files */,
 			);
@@ -127,10 +124,9 @@
 		2BFF97541F23513900DCCDA3 /* SlideOutNavigationTests */ = {
 			isa = PBXGroup;
 			children = (
-				2B352FC21F2F0F5600B038E1 /* Managers */,
+				2B352FD31F33185600B038E1 /* Navigation */,
 				2BFF97551F23513900DCCDA3 /* SlideOutNavigationTests.swift */,
 				2BFF97571F23513900DCCDA3 /* Info.plist */,
-				2B352FC71F30657100B038E1 /* MockSlideOutNavigationManager.swift */,
 			);
 			path = SlideOutNavigationTests;
 			sourceTree = "<group>";
@@ -143,18 +139,11 @@
 			path = Animators;
 			sourceTree = "<group>";
 		};
-		2BFF97651F23515600DCCDA3 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				2BFF97661F23515600DCCDA3 /* LeftSlideOutNavigationManager.swift */,
-				2BFF97671F23515600DCCDA3 /* SlideOutNavigationManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		2BFF97691F23515600DCCDA3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				2B352FD11F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift */,
+				2B352FC91F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift */,
 				2B3676D91F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift */,
 				2B3676DA1F29AD3D0066D36F /* SlideOutNavigationViewController.swift */,
 			);
@@ -282,14 +271,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B3676DB1F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift in Sources */,
-				2BFF97731F23515600DCCDA3 /* SlideOutNavigationManager.swift in Sources */,
 				2B3676E91F2AFA000066D36F /* LeftSlideOutMenu.swift in Sources */,
 				2B3676EA1F2AFA000066D36F /* MenuHelper.swift in Sources */,
 				2B3676DC1F29AD3D0066D36F /* SlideOutNavigationViewController.swift in Sources */,
-				2BFF97721F23515600DCCDA3 /* LeftSlideOutNavigationManager.swift in Sources */,
+				2B352FD21F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift in Sources */,
 				2B3676E71F2AFA000066D36F /* Event.swift in Sources */,
+				2B352FD01F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift in Sources */,
 				2B3676E81F2AFA000066D36F /* Interactor.swift in Sources */,
 				2BFF976F1F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift in Sources */,
+				2B352FCA1F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +287,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B352FC81F30657100B038E1 /* MockSlideOutNavigationManager.swift in Sources */,
 				2BFF97561F23513900DCCDA3 /* SlideOutNavigationTests.swift in Sources */,
-				2B352FC41F2F0F6900B038E1 /* TestLeftSlideOutNavigationManager.swift in Sources */,
-				2B352FC61F2F0F8600B038E1 /* TestSlideOutNavigationManager.swift in Sources */,
+				2B352FD51F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,19 +9,35 @@
 import Foundation
 
 class Event {
-    private var callbacks = ContiguousArray<() -> Void>()
+    private let internalEvent = EventWithMetadata<Void?>()
     
     init() {
         
     }
     
     func subscribe(_ callback: @escaping () -> Void) {
-        callbacks.append(callback)
+        internalEvent.subscribe({ _ in callback() })
     }
     
     func trigger() {
+        internalEvent.trigger(withMetada: nil)
+    }
+}
+
+class EventWithMetadata<T> {
+    private var callbacks = ContiguousArray<(T) -> Void>()
+    
+    init() {
+        
+    }
+    
+    func subscribe(_ callback: @escaping (T) -> Void) {
+        callbacks.append(callback)
+    }
+    
+    func trigger(withMetada metadata: T) {
         for i in 0..<callbacks.count {
-            callbacks[i]()
+            callbacks[i](metadata)
         }
     }
 }

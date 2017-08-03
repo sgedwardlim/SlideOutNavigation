@@ -9,39 +9,28 @@
 import Foundation
 
 public struct LeftSlideOutNavigationEvents {
-    let menuItemSelection = Event()
+    let menuItemSelection = EventWithMetadata<UIViewController>()
 }
 
-public protocol LeftSlideOutNavigationManagerProtocol {
-    static var shared: LeftSlideOutNavigationManagerProtocol { get }
+public protocol LeftSlideOutMenuNavigationProtocol {
     var events: LeftSlideOutNavigationEvents { get }
-    
     var sections: [LeftSlideOutMenuSection] { get }
     var menuItems: [LeftSlideOutMenuItem] { get }
-//    var dict: [String: UIViewController] { get }
 
     func update(leftSlideOutMenuSections: [LeftSlideOutMenuSection])
     func mapToViewController(viewTitle: String) -> UIViewController
     func menuItemSelection(viewTitle: String)
 }
 
-// todo: maybe this doesnt have to be public????
-public class LeftSlideOutNavigationManager: LeftSlideOutNavigationManagerProtocol {
-//    public static var shared: LeftSlideOutNavigationManagerProtocol = LeftSlideOutNavigationManager(navigationManager: SlideOutNavigationManager.shared)
-    public static var shared: LeftSlideOutNavigationManagerProtocol {
-        return LeftSlideOutNavigationManager(navigationManager: SlideOutNavigationManager.shared)
-    }
-    
-    private let navigationManager: SlideOutNavigationManagerProtocol
-    
-    public let events: LeftSlideOutNavigationEvents = LeftSlideOutNavigationEvents()
-    
+public class LeftSlideOutMenuNavigation: LeftSlideOutMenuNavigationProtocol {
+    public let events = LeftSlideOutNavigationEvents()
     public private(set) var sections: [LeftSlideOutMenuSection] = []
     public private(set) var menuItems: [LeftSlideOutMenuItem] = []
+    
     private var dict: [String: UIViewController] = [:]
     
-    private init(navigationManager: SlideOutNavigationManagerProtocol) {
-        self.navigationManager = navigationManager
+    public init() {
+    
     }
     
     public func update(leftSlideOutMenuSections: [LeftSlideOutMenuSection]) {
@@ -71,8 +60,7 @@ public class LeftSlideOutNavigationManager: LeftSlideOutNavigationManagerProtoco
     
     public func menuItemSelection(viewTitle: String) {
         let viewController = mapToViewController(viewTitle: viewTitle)
-        navigationManager.update(mainViewController: viewController)
-        events.menuItemSelection.trigger()
+        events.menuItemSelection.trigger(withMetada: viewController)
     }
 }
 

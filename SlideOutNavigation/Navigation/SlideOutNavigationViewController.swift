@@ -8,36 +8,24 @@
 
 import UIKit
 
-public final class SlideOutNavigationBarItemProperties {
-    // titleLabel properties
-    static var title: String = ""
-    static var titleAlignment: NSTextAlignment = .left
-    static var titleFont: UIFont = UIFont.boldSystemFont(ofSize: 16)
-    static var titleColor: UIColor = .black
-    
-    // leftMenuBarButtonItem properties
-    static var leftMenuButtonTintColor: UIColor = .black
-    static var leftMenuButtonImage: UIImage = #imageLiteral(resourceName: "menu")
-    static var leftMenuButtonStyle: UIBarButtonItemStyle = .plain
-    
-    // rightMenuBarButtonItem properties
-    static var rightMenuButtonTintColor: UIColor = .black
-    static var rightMenuButtonImage: UIImage? = nil
-    static var rightMenuButtonStyle: UIBarButtonItemStyle = .plain
+protocol SlideOutNavigationProtocol {
+    var mainViewController: UIViewController { get }
+    var leftViewController: LeftSlideOutMenuViewController { get }
+    func update(mainViewController: UIViewController)
 }
 
-public class SlideOutNavigationController: UINavigationController {
-    private let navigationManager: SlideOutNavigationManagerProtocol
-    private var leftNavigationViewController: LeftSlideOutNavigationViewController
-    
+public class SlideOutNavigationController: UINavigationController, SlideOutNavigationProtocol {
+    private(set) var mainViewController: UIViewController
+    private(set) var leftViewController: LeftSlideOutMenuViewController
+    private var leftNavigationViewController: LeftSlideOutNavigationViewController!
     private let animator = PresentLeftSlideOutAnimator()
     
     // MARK: - Setup
-    public init(mainViewController: UIViewController, leftViewController: UIViewController, rightViewController: UIViewController?) {
-        navigationManager = SlideOutNavigationManager.shared
-        navigationManager.update(mainViewController: mainViewController, leftViewController: leftViewController, rightViewController: rightViewController)
-        leftNavigationViewController = LeftSlideOutNavigationViewController()
+    public init(mainViewController: UIViewController, leftViewController: LeftSlideOutMenuViewController, rightViewController: UIViewController?) {
+        self.mainViewController = mainViewController
+        self.leftViewController = leftViewController
         super.init(nibName: nil, bundle: nil)
+        leftNavigationViewController = LeftSlideOutNavigationViewController(self, leftSlideOutMenu: leftViewController)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -46,53 +34,49 @@ public class SlideOutNavigationController: UINavigationController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
-        updateRootViewController()
-        navigationManager.events.mainViewControllerUpdated.subscribe { [weak self] in
-            self?.updateRootViewController()
-        }
+        update(mainViewController: mainViewController)
     }
     
-    private func updateRootViewController() {
-        self.viewControllers = [navigationManager.mainViewController]
-        navigationManager.mainViewController.viewDidLoad()
-        navigationManager.mainViewController.viewDidAppear(false)
-        updateNavigationBarItems()
+    func update(mainViewController: UIViewController) {
+        self.mainViewController = mainViewController
+        self.viewControllers = [mainViewController]
+        mainViewController.viewDidLoad()
+        mainViewController.viewDidAppear(false)
+        updateNavigationBarItems(for: mainViewController)
     }
     
-    private func updateNavigationBarItems() {
-        setupNavigationBarTitleView()
-        setupLeftNavigationBarItems()
-        setupRightNavigationBarItems()
+    private func updateNavigationBarItems(for mainViewController: UIViewController) {
+        setupNavigationBarTitleView(for: mainViewController)
+        setupLeftNavigationBarItems(for: mainViewController)
+        setupRightNavigationBarItems(for: mainViewController)
         
         navigationBar.isTranslucent = false // doesn't have to be here only set once
     }
     
-    
-    private func setupNavigationBarTitleView() {
-        navigationManager.mainViewController.navigationItem.title = nil
-        guard let label = navigationManager.mainViewController.navigationItem.titleView as? UILabel else {
+    private func setupNavigationBarTitleView(for mainViewController: UIViewController) {
+        mainViewController.navigationItem.title = nil
+        guard let label = mainViewController.navigationItem.titleView as? UILabel else {
             // may be better to create a copy of this instead of passing the reference, might be dangerous
-            navigationManager.mainViewController.navigationItem.titleView = titleLabel
+            mainViewController.navigationItem.titleView = titleLabel
             return
         }
         label.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40)
     }
     
-    private func setupLeftNavigationBarItems() {
-        guard let leftMenuButton = navigationManager.mainViewController.navigationItem.leftBarButtonItem else {
+    private func setupLeftNavigationBarItems(for mainViewController: UIViewController) {
+        guard let leftMenuButton = mainViewController.navigationItem.leftBarButtonItem else {
             // may be better to create a copy of this instead of passing the reference, might be dangerous
-            navigationManager.mainViewController.navigationItem.leftBarButtonItem = self.leftMenuButton
+            mainViewController.navigationItem.leftBarButtonItem = self.leftMenuButton
             return
         }
         leftMenuButton.target = self
         leftMenuButton.action = #selector(handleLeftMenuSelection)
     }
     
-    private func setupRightNavigationBarItems() {
-        guard let rightMenuButton = navigationManager.mainViewController.navigationItem.rightBarButtonItem else {
+    private func setupRightNavigationBarItems(for mainViewController: UIViewController) {
+        guard let rightMenuButton = mainViewController.navigationItem.rightBarButtonItem else {
             // may be better to create a copy of this instead of passing the reference, might be dangerous
-            navigationManager.mainViewController.navigationItem.rightBarButtonItem = nil
+            mainViewController.navigationItem.rightBarButtonItem = nil
             return
         }
         rightMenuButton.target = self
