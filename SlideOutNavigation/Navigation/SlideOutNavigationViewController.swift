@@ -8,15 +8,9 @@
 
 import UIKit
 
-protocol SlideOutNavigationProtocol {
-    var mainViewController: UIViewController { get }
-    var leftViewController: LeftSlideOutMenuViewController { get }
-    func update(mainViewController: UIViewController)
-}
-
-public class SlideOutNavigationController: UINavigationController, SlideOutNavigationProtocol {
+public class SlideOutNavigationController: UINavigationController {
     private(set) var mainViewController: UIViewController
-    private(set) var leftViewController: LeftSlideOutMenuViewController
+    private let leftViewController: LeftSlideOutMenuViewController
     private var leftNavigationViewController: LeftSlideOutNavigationViewController!
     private let animator = PresentLeftSlideOutAnimator()
     
@@ -34,6 +28,7 @@ public class SlideOutNavigationController: UINavigationController, SlideOutNavig
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar.isTranslucent = false
         update(mainViewController: mainViewController)
     }
     
@@ -49,14 +44,11 @@ public class SlideOutNavigationController: UINavigationController, SlideOutNavig
         setupNavigationBarTitleView(for: mainViewController)
         setupLeftNavigationBarItems(for: mainViewController)
         setupRightNavigationBarItems(for: mainViewController)
-        
-        navigationBar.isTranslucent = false // doesn't have to be here only set once
     }
     
     private func setupNavigationBarTitleView(for mainViewController: UIViewController) {
         mainViewController.navigationItem.title = nil
         guard let label = mainViewController.navigationItem.titleView as? UILabel else {
-            // may be better to create a copy of this instead of passing the reference, might be dangerous
             mainViewController.navigationItem.titleView = titleLabel
             return
         }
@@ -65,7 +57,6 @@ public class SlideOutNavigationController: UINavigationController, SlideOutNavig
     
     private func setupLeftNavigationBarItems(for mainViewController: UIViewController) {
         guard let leftMenuButton = mainViewController.navigationItem.leftBarButtonItem else {
-            // may be better to create a copy of this instead of passing the reference, might be dangerous
             mainViewController.navigationItem.leftBarButtonItem = self.leftMenuButton
             return
         }
@@ -75,7 +66,6 @@ public class SlideOutNavigationController: UINavigationController, SlideOutNavig
     
     private func setupRightNavigationBarItems(for mainViewController: UIViewController) {
         guard let rightMenuButton = mainViewController.navigationItem.rightBarButtonItem else {
-            // may be better to create a copy of this instead of passing the reference, might be dangerous
             mainViewController.navigationItem.rightBarButtonItem = nil
             return
         }

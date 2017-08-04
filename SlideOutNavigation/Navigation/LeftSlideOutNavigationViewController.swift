@@ -9,12 +9,12 @@
 import UIKit
 
 class LeftSlideOutNavigationViewController: UIViewController {
-    private let mainNavigation: SlideOutNavigationProtocol
+    private let mainNavigation: SlideOutNavigationController
     private let leftSlideOutMenu: LeftSlideOutMenuViewController
     private let menuManager: LeftSlideOutMenuNavigationProtocol
     
     // MARK: - Setup
-    init(_ mainNavigation: SlideOutNavigationProtocol, leftSlideOutMenu: LeftSlideOutMenuViewController) {
+    init(_ mainNavigation: SlideOutNavigationController, leftSlideOutMenu: LeftSlideOutMenuViewController) {
         self.mainNavigation = mainNavigation
         self.leftSlideOutMenu = leftSlideOutMenu
         self.menuManager = leftSlideOutMenu.menuManager
@@ -58,11 +58,11 @@ class LeftSlideOutNavigationViewController: UIViewController {
     }
     
     private func addChildViewController() {
-        addChildViewController(mainNavigation.leftViewController)
-        containerView.addSubview(mainNavigation.leftViewController.view)
-        mainNavigation.leftViewController.view.frame = containerView.bounds
-        mainNavigation.leftViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mainNavigation.leftViewController.didMove(toParentViewController: self)
+        addChildViewController(leftSlideOutMenu)
+        containerView.addSubview(leftSlideOutMenu.view)
+        leftSlideOutMenu.view.frame = containerView.bounds
+        leftSlideOutMenu.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        leftSlideOutMenu.didMove(toParentViewController: self)
     }
     
     // MARK: - UIView Components

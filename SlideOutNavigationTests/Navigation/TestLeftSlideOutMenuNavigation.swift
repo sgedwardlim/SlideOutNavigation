@@ -20,6 +20,8 @@ class TestLeftSlideOutMenuNavigation: XCTestCase {
     func testSectionsUpdated() {
         let section = LeftSlideOutMenuSection(sectionTitle: "sectionTitle", items: [])
         manager.update(leftSlideOutMenuSections: [section])
+        XCTAssertEqual(manager.sections[0].sectionTitle, section.sectionTitle)
+        XCTAssertEqual(manager.sections[0].items.isEmpty, section.items.isEmpty)
     }
     
     func testMenuItemsUpdated() {
@@ -31,7 +33,7 @@ class TestLeftSlideOutMenuNavigation: XCTestCase {
         XCTAssertEqual(manager.sections[0].items[0].viewController, menuItem.viewController)
     }
     
-    func testMapsCorrespondingVewControllerWithTitle() {
+    func testMapToCorrespondingViewControllerWithTitle() {
         let menuItemVC = UIViewController()
         let menuItem = LeftSlideOutMenuItem(viewTitle: "menuItem", viewController: menuItemVC)
         let section = LeftSlideOutMenuSection(sectionTitle: "sectionTitle", items: [menuItem])
@@ -39,13 +41,15 @@ class TestLeftSlideOutMenuNavigation: XCTestCase {
         XCTAssertEqual(manager.mapToViewController(viewTitle: menuItem.viewTitle), menuItemVC)
     }
     
-//    func testMenuItemSelectionUpdatesMainViewController() {
-//        let menuItemVC = UIViewController()
-//        let menuItem = LeftSlideOutMenuItem(viewTitle: "menuItem", viewController: menuItemVC)
-//        let section = LeftSlideOutMenuSection(sectionTitle: "sectionTitle", items: [menuItem])
-//        manager.update(leftSlideOutMenuSections: [section])
-//        manager.menuItemSelection(viewTitle: menuItem.viewTitle)
-//        XCTAssertEqual(manager, menuItemVC)
-//    }
+    func testMenuItemSelection() {
+        let menuItemVC = UIViewController()
+        let menuItem = LeftSlideOutMenuItem(viewTitle: "menuItem", viewController: menuItemVC)
+        let section = LeftSlideOutMenuSection(sectionTitle: "sectionTitle", items: [menuItem])
+        manager.update(leftSlideOutMenuSections: [section])
+        manager.events.menuItemSelection.subscribe {
+            XCTAssertEqual($0, menuItem.viewController)
+        }
+        manager.menuItemSelection(viewTitle: menuItem.viewTitle)
+    }
     
 }
