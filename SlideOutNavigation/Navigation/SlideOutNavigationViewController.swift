@@ -68,8 +68,7 @@ public class SlideOutNavigationController: UINavigationController {
     }
     
     private func setupRightNavigationBarItems(for mainViewController: UIViewController) {
-        guard let rightMenuButton = mainViewController.navigationItem.rightBarButtonItem else {
-            mainViewController.navigationItem.rightBarButtonItem = nil
+        guard let rightMenuButton = mainViewController.navigationItem.rightBarButtonItem as? RightMenuButton else {
             return
         }
         rightMenuButton.target = self
@@ -101,9 +100,9 @@ public class SlideOutNavigationController: UINavigationController {
         }
     }
     
-    private var rightMenuButton: UIBarButtonItem {
+    private var rightMenuButton: RightMenuButton {
         get {
-            let button = UIBarButtonItem()
+            let button = RightMenuButton()
             button.image = SlideOutNavigationBarItemProperties.rightMenuButtonImage
             button.style = SlideOutNavigationBarItemProperties.rightMenuButtonStyle
             button.tintColor = SlideOutNavigationBarItemProperties.rightMenuButtonTintColor
@@ -122,4 +121,9 @@ public class SlideOutNavigationController: UINavigationController {
     func handleRightMenuSelection() {
 
     }
+}
+
+
+public class RightMenuButton: UIBarButtonItem {
+    
 }
