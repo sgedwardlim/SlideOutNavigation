@@ -47,12 +47,15 @@ public class SlideOutNavigationController: UINavigationController {
     }
     
     private func setupNavigationBarTitleView(for mainViewController: UIViewController) {
-        mainViewController.navigationItem.title = nil
-        guard let label = mainViewController.navigationItem.titleView as? UILabel else {
+        if let title = mainViewController.navigationItem.title {
+            let newTitleLabel = titleLabel
+            newTitleLabel.text = title
+            mainViewController.navigationItem.titleView = newTitleLabel
+        } else if let label = mainViewController.navigationItem.titleView as? UILabel {
+            label.frame = titleLabel.frame
+        } else {
             mainViewController.navigationItem.titleView = titleLabel
-            return
         }
-        label.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40)
     }
     
     private func setupLeftNavigationBarItems(for mainViewController: UIViewController) {
