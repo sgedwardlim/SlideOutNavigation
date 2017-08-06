@@ -28,8 +28,15 @@ public class SlideOutNavigationController: UINavigationController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.isTranslucent = false
+        setupNavigationBar()
         update(mainViewController: mainViewController)
+    }
+    
+    private func setupNavigationBar() {
+        navigationBar.isTranslucent = false
+        navigationBar.shadowImage = SlideOutNavigationBarProperties.border ? nil : UIImage()
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.barTintColor = SlideOutNavigationBarProperties.backgroundColor
     }
     
     func update(mainViewController: UIViewController) {

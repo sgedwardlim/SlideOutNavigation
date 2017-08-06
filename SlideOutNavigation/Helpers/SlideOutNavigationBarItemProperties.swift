@@ -10,18 +10,18 @@ import Foundation
 
 public final class SlideOutNavigationBarItemProperties {
     // default titleLabel properties
-    static var title: String = ""
-    static var titleAlignment: NSTextAlignment = .left
-    static var titleFont: UIFont = UIFont.boldSystemFont(ofSize: 16)
-    static var titleColor: UIColor = .black
+    public static var title: String = ""
+    public static var titleAlignment: NSTextAlignment = .left
+    public static var titleFont: UIFont = UIFont.boldSystemFont(ofSize: 16)
+    public static var titleColor: UIColor = .black
     
     // default leftMenuBarButtonItem properties
-    static var leftMenuButtonTintColor: UIColor = .black
-    static var leftMenuButtonImage: UIImage = #imageLiteral(resourceName: "menu")
-    static var leftMenuButtonStyle: UIBarButtonItemStyle = .plain
+    public static var leftMenuButtonTintColor: UIColor = .black
+    public static var leftMenuButtonImage: UIImage = #imageLiteral(resourceName: "menu")
+    public static var leftMenuButtonStyle: UIBarButtonItemStyle = .plain
     
     // default rightMenuBarButtonItem properties
-    static var rightMenuButtonTintColor: UIColor = .black
-    static var rightMenuButtonImage: UIImage? = nil
-    static var rightMenuButtonStyle: UIBarButtonItemStyle = .plain
+    public static var rightMenuButtonTintColor: UIColor = .black
+    public static var rightMenuButtonImage: UIImage? = nil
+    public static var rightMenuButtonStyle: UIBarButtonItemStyle = .plain
 }
