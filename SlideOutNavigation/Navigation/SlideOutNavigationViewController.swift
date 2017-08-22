@@ -44,6 +44,7 @@ public class SlideOutNavigationController: UINavigationController {
         self.viewControllers = [mainViewController]
         mainViewController.loadView()
         mainViewController.viewDidLoad()
+        mainViewController.viewDidAppear(false)
         updateNavigationBarItems(for: mainViewController)
     }
     
