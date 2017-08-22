@@ -17,7 +17,7 @@ public final class SlideOutNavigationBarItemProperties {
     
     // default leftMenuBarButtonItem properties
     public static var leftMenuButtonTintColor: UIColor = .black
-    public static var leftMenuButtonImage: UIImage = #imageLiteral(resourceName: "menu")
+    public static var leftMenuButtonImage: UIImage = #imageLiteral(resourceName: "menu.png")
     public static var leftMenuButtonStyle: UIBarButtonItemStyle = .plain
     
     // default rightMenuBarButtonItem properties
