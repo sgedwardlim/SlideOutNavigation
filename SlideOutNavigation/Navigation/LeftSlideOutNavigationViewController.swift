@@ -60,8 +60,11 @@ class LeftSlideOutNavigationViewController: UIViewController {
     private func addChildViewController() {
         addChildViewController(leftSlideOutMenu)
         containerView.addSubview(leftSlideOutMenu.view)
-        leftSlideOutMenu.view.frame = containerView.bounds
-        leftSlideOutMenu.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        leftSlideOutMenu.view.translatesAutoresizingMaskIntoConstraints = false
+        leftSlideOutMenu.view.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        leftSlideOutMenu.view.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+        leftSlideOutMenu.view.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        leftSlideOutMenu.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         leftSlideOutMenu.didMove(toParentViewController: self)
     }
     

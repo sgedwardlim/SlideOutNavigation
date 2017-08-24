@@ -17,11 +17,15 @@ public final class SlideOutNavigationBarItemProperties {
     
     // default leftMenuBarButtonItem properties
     public static var leftMenuButtonTintColor: UIColor = .black
-    public static var leftMenuButtonImage: UIImage = #imageLiteral(resourceName: "menu.png")
+    public static var leftMenuButtonImage: UIImage = UIImage(named: "menu", in: bundle, compatibleWith: nil)!
     public static var leftMenuButtonStyle: UIBarButtonItemStyle = .plain
     
     // default rightMenuBarButtonItem properties
     public static var rightMenuButtonTintColor: UIColor = .black
     public static var rightMenuButtonImage: UIImage? = nil
     public static var rightMenuButtonStyle: UIBarButtonItemStyle = .plain
+    
+    private static var bundle: Bundle {
+        return Bundle(for: SlideOutNavigationBarItemProperties.self)
+    }
 }
