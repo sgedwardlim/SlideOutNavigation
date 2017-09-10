@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol LeftSlideOutNavigationViewControllerDelegate: class {
+    func leftSlideOutMenuDismissed()
+    
+}
+
 class LeftSlideOutNavigationViewController: UIViewController {
     private let mainNavigation: SlideOutNavigationController
     private let leftSlideOutMenu: LeftSlideOutMenuViewController
     private let menuManager: LeftSlideOutMenuNavigationProtocol
+    weak var delegate: LeftSlideOutNavigationViewControllerDelegate?
     
     // MARK: - Setup
     init(_ mainNavigation: SlideOutNavigationController, leftSlideOutMenu: LeftSlideOutMenuViewController) {
@@ -85,11 +91,13 @@ class LeftSlideOutNavigationViewController: UIViewController {
     // MARK: - Actions
     func handleDismissSelection() {
         dismiss(animated: true, completion: nil)
+        delegate?.leftSlideOutMenuDismissed()
     }
     
     func menuItemSelection(viewController: UIViewController) {
         mainNavigation.update(mainViewController: viewController)
         dismiss(animated: true, completion: nil)
+        delegate?.leftSlideOutMenuDismissed()
     }
 }
 

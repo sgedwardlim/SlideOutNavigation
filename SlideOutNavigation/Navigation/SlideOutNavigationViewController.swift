@@ -8,11 +8,19 @@
 
 import UIKit
 
-public class SlideOutNavigationController: UINavigationController {
+@objc public protocol SlideOutNavigationControllerDelegate: class {
+    @objc optional func leftMenuSelected()
+    @objc optional func leftMenuDismissed()
+    @objc optional func rightMenuSelected()
+    @objc optional func rightMenuDismissed()
+}
+
+open class SlideOutNavigationController: UINavigationController {
     private(set) var mainViewController: UIViewController
     private let leftViewController: LeftSlideOutMenuViewController
     private var leftNavigationViewController: LeftSlideOutNavigationViewController!
     private let animator = PresentLeftSlideOutAnimator()
+    public weak var menuDelegate: SlideOutNavigationControllerDelegate?
     
     // MARK: - Setup
     public init(mainViewController: UIViewController, leftViewController: LeftSlideOutMenuViewController, rightViewController: UIViewController?) {
@@ -20,13 +28,14 @@ public class SlideOutNavigationController: UINavigationController {
         self.leftViewController = leftViewController
         super.init(nibName: nil, bundle: nil)
         leftNavigationViewController = LeftSlideOutNavigationViewController(self, leftSlideOutMenu: leftViewController)
+        leftNavigationViewController.delegate = self
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         update(mainViewController: mainViewController)
@@ -122,12 +131,19 @@ public class SlideOutNavigationController: UINavigationController {
     
     // MARK: - UIBarButtonItem Actions
     func handleLeftMenuSelection() {
+        menuDelegate?.leftMenuSelected!()
         leftNavigationViewController.transitioningDelegate = animator
         present(leftNavigationViewController, animated: true, completion: nil)
     }
 
     func handleRightMenuSelection() {
+        menuDelegate?.rightMenuSelected!()
+    }
+}
 
+extension SlideOutNavigationController: LeftSlideOutNavigationViewControllerDelegate {
+    func leftSlideOutMenuDismissed() {
+        menuDelegate?.leftMenuDismissed!()
     }
 }
 

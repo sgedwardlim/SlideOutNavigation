@@ -40,7 +40,6 @@ public class LeftSlideOutMenuNavigation: LeftSlideOutMenuNavigationProtocol {
             sections.append(section)
             for item in section.items {
                 if dict[item.viewTitle] != nil {
-                    // perhaps instead of fatalerror we can just test for it via unit testing
                     fatalError("ERROR: \"\(item.viewTitle)\" is already used as a key for \(dict[item.viewTitle]!) and cannot be used for \(item.viewController)")
                 }
                 dict[item.viewTitle] = item.viewController
@@ -53,7 +52,7 @@ public class LeftSlideOutMenuNavigation: LeftSlideOutMenuNavigationProtocol {
     
     public func mapToViewController(viewTitle: String) -> UIViewController {
         guard let vc = dict[viewTitle] else {
-            fatalError("ERROR: \(viewTitle) did not map to any existing View Controllers in LeftSlideOutNavigationManager")
+            fatalError("ERROR: \(viewTitle) did not map to any existing ViewControllers in LeftSlideOutNavigationManager")
         }
         return vc
     }
