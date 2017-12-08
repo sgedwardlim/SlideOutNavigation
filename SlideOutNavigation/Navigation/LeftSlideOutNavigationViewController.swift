@@ -10,7 +10,6 @@ import UIKit
 
 protocol LeftSlideOutNavigationViewControllerDelegate: class {
     func leftSlideOutMenuDismissed()
-    
 }
 
 class LeftSlideOutNavigationViewController: UIViewController {
@@ -89,7 +88,7 @@ class LeftSlideOutNavigationViewController: UIViewController {
     }()
 
     // MARK: - Actions
-    func handleDismissSelection() {
+    @objc func handleDismissSelection() {
         dismiss(animated: true, completion: nil)
         delegate?.leftSlideOutMenuDismissed()
     }

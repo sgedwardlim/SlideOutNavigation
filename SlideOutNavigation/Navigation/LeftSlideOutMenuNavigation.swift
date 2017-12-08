@@ -10,6 +10,8 @@ import Foundation
 
 public struct LeftSlideOutNavigationEvents {
     let menuItemSelection = EventWithMetadata<UIViewController>()
+    
+    public init() {}
 }
 
 public protocol LeftSlideOutMenuNavigationProtocol {

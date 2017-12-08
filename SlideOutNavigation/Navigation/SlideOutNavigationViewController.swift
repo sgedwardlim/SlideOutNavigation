@@ -130,13 +130,13 @@ open class SlideOutNavigationController: UINavigationController {
     }
     
     // MARK: - UIBarButtonItem Actions
-    func handleLeftMenuSelection() {
+    @objc func handleLeftMenuSelection() {
         menuDelegate?.leftMenuSelected!()
         leftNavigationViewController.transitioningDelegate = animator
         present(leftNavigationViewController, animated: true, completion: nil)
     }
 
-    func handleRightMenuSelection() {
+    @objc func handleRightMenuSelection() {
         menuDelegate?.rightMenuSelected!()
     }
 }
