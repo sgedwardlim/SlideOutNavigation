@@ -1,6 +1,6 @@
 //
 //  LeftSlideOutNavigationManager.swift
-//  sturdy
+//  Sturdy
 //
 //  Created by Edward on 7/17/17.
 //  Copyright © 2017 Edward. All rights reserved.

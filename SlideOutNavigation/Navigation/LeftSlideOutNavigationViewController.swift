@@ -1,6 +1,6 @@
 //
 //  LeftSlideOutNavigationViewController.swift
-//  sturdy
+//  Sturdy
 //
 //  Created by Edward on 7/15/17.
 //  Copyright © 2017 Edward. All rights reserved.
