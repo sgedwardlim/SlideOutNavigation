@@ -7,20 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B352FCA1F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FC91F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift */; };
-		2B352FD01F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FCF1F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift */; };
-		2B352FD21F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FD11F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift */; };
-		2B352FD51F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B352FD41F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift */; };
-		2B3676DB1F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676D91F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift */; };
-		2B3676DC1F29AD3D0066D36F /* SlideOutNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676DA1F29AD3D0066D36F /* SlideOutNavigationViewController.swift */; };
 		2B3676E71F2AFA000066D36F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676E31F2AFA000066D36F /* Event.swift */; };
 		2B3676E81F2AFA000066D36F /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676E41F2AFA000066D36F /* Interactor.swift */; };
-		2B3676E91F2AFA000066D36F /* LeftSlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676E51F2AFA000066D36F /* LeftSlideOutMenu.swift */; };
 		2B3676EA1F2AFA000066D36F /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676E61F2AFA000066D36F /* MenuHelper.swift */; };
-		2B7061071F36C6CC0092872E /* SlideOutNavigationBarProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7061061F36C6CC0092872E /* SlideOutNavigationBarProperties.swift */; };
 		2B923F5E1F4D3D7000DE0060 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B923F5D1F4D3D7000DE0060 /* Media.xcassets */; };
+		2BAEED0E21CF17AD003FAECA /* SONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEED0B21CF17AD003FAECA /* SONViewController.swift */; };
+		2BAEED0F21CF17AD003FAECA /* SONMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEED0C21CF17AD003FAECA /* SONMenuViewController.swift */; };
+		2BAEED1021CF17AD003FAECA /* SONMenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEED0D21CF17AD003FAECA /* SONMenuViewCell.swift */; };
 		2BFF97511F23513900DCCDA3 /* SlideOutNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BFF97471F23513900DCCDA3 /* SlideOutNavigation.framework */; };
-		2BFF97561F23513900DCCDA3 /* SlideOutNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF97551F23513900DCCDA3 /* SlideOutNavigationTests.swift */; };
 		2BFF976F1F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF97621F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift */; };
 		2BFF97E01F24476A00DCCDA3 /* SlideOutNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BFF97DE1F24476A00DCCDA3 /* SlideOutNavigation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -36,21 +30,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B352FC91F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSlideOutMenuViewController.swift; sourceTree = "<group>"; };
-		2B352FCF1F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutNavigationBarItemProperties.swift; sourceTree = "<group>"; };
-		2B352FD11F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSlideOutMenuNavigation.swift; sourceTree = "<group>"; };
-		2B352FD41F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLeftSlideOutMenuNavigation.swift; sourceTree = "<group>"; };
-		2B3676D91F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSlideOutNavigationViewController.swift; sourceTree = "<group>"; };
-		2B3676DA1F29AD3D0066D36F /* SlideOutNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutNavigationViewController.swift; sourceTree = "<group>"; };
 		2B3676E31F2AFA000066D36F /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		2B3676E41F2AFA000066D36F /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
-		2B3676E51F2AFA000066D36F /* LeftSlideOutMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSlideOutMenu.swift; sourceTree = "<group>"; };
 		2B3676E61F2AFA000066D36F /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
-		2B7061061F36C6CC0092872E /* SlideOutNavigationBarProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutNavigationBarProperties.swift; sourceTree = "<group>"; };
 		2B923F5D1F4D3D7000DE0060 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		2BAEED0B21CF17AD003FAECA /* SONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SONViewController.swift; sourceTree = "<group>"; };
+		2BAEED0C21CF17AD003FAECA /* SONMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SONMenuViewController.swift; sourceTree = "<group>"; };
+		2BAEED0D21CF17AD003FAECA /* SONMenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SONMenuViewCell.swift; sourceTree = "<group>"; };
 		2BFF97471F23513900DCCDA3 /* SlideOutNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SlideOutNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BFF97501F23513900DCCDA3 /* SlideOutNavigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideOutNavigationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BFF97551F23513900DCCDA3 /* SlideOutNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutNavigationTests.swift; sourceTree = "<group>"; };
 		2BFF97571F23513900DCCDA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BFF97621F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentLeftSlideOutAnimator.swift; sourceTree = "<group>"; };
 		2BFF97DD1F24476A00DCCDA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,7 +67,6 @@
 		2B352FD31F33185600B038E1 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				2B352FD41F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -89,10 +76,7 @@
 			children = (
 				2B3676E31F2AFA000066D36F /* Event.swift */,
 				2B3676E41F2AFA000066D36F /* Interactor.swift */,
-				2B3676E51F2AFA000066D36F /* LeftSlideOutMenu.swift */,
 				2B3676E61F2AFA000066D36F /* MenuHelper.swift */,
-				2B352FCF1F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift */,
-				2B7061061F36C6CC0092872E /* SlideOutNavigationBarProperties.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -130,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				2B352FD31F33185600B038E1 /* Navigation */,
-				2BFF97551F23513900DCCDA3 /* SlideOutNavigationTests.swift */,
 				2BFF97571F23513900DCCDA3 /* Info.plist */,
 			);
 			path = SlideOutNavigationTests;
@@ -147,10 +130,9 @@
 		2BFF97691F23515600DCCDA3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				2B352FD11F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift */,
-				2B352FC91F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift */,
-				2B3676D91F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift */,
-				2B3676DA1F29AD3D0066D36F /* SlideOutNavigationViewController.swift */,
+				2BAEED0D21CF17AD003FAECA /* SONMenuViewCell.swift */,
+				2BAEED0C21CF17AD003FAECA /* SONMenuViewController.swift */,
+				2BAEED0B21CF17AD003FAECA /* SONViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -277,17 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B3676DB1F29AD3D0066D36F /* LeftSlideOutNavigationViewController.swift in Sources */,
-				2B3676E91F2AFA000066D36F /* LeftSlideOutMenu.swift in Sources */,
+				2BAEED1021CF17AD003FAECA /* SONMenuViewCell.swift in Sources */,
 				2B3676EA1F2AFA000066D36F /* MenuHelper.swift in Sources */,
-				2B3676DC1F29AD3D0066D36F /* SlideOutNavigationViewController.swift in Sources */,
-				2B352FD21F33175B00B038E1 /* LeftSlideOutMenuNavigation.swift in Sources */,
 				2B3676E71F2AFA000066D36F /* Event.swift in Sources */,
-				2B352FD01F33148F00B038E1 /* SlideOutNavigationBarItemProperties.swift in Sources */,
+				2BAEED0F21CF17AD003FAECA /* SONMenuViewController.swift in Sources */,
 				2B3676E81F2AFA000066D36F /* Interactor.swift in Sources */,
 				2BFF976F1F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift in Sources */,
-				2B7061071F36C6CC0092872E /* SlideOutNavigationBarProperties.swift in Sources */,
-				2B352FCA1F32EA5D00B038E1 /* LeftSlideOutMenuViewController.swift in Sources */,
+				2BAEED0E21CF17AD003FAECA /* SONViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BFF97561F23513900DCCDA3 /* SlideOutNavigationTests.swift in Sources */,
-				2B352FD51F33185600B038E1 /* TestLeftSlideOutMenuNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
