@@ -55,14 +55,14 @@ open class SONController: UINavigationController {
         navigationBar.isTranslucent = false
         navigationBar.shadowImage = UIImage()
         navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.barTintColor = .clear
+//        navigationBar.barTintColor = .clear
     }
     
     // MARK: -
     private func didSetSONDataSource() {
         leftSONMenuViewController = sonDataSource?.sonController(sonMenuViewControllerForLeftMenuButton: self)
     }
-    
+
     private func didSetMainViewController() {
         guard let mainViewController = mainViewController else { return }
         previousMainViewController?.willMove(toParentViewController: nil)
@@ -73,6 +73,12 @@ open class SONController: UINavigationController {
         mainContainerViewController.addChildViewController(mainViewController)
         mainViewController.didMove(toParentViewController: mainContainerViewController)
         mainContainerViewController.view.addSubview(mainViewController.view)
+        
+        mainViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        mainViewController.view.topAnchor.constraint(equalTo: mainContainerViewController.view.topAnchor).isActive = true
+        mainViewController.view.bottomAnchor.constraint(equalTo: mainContainerViewController.view.bottomAnchor).isActive = true
+        mainViewController.view.leftAnchor.constraint(equalTo: mainContainerViewController.view.leftAnchor).isActive = true
+        mainViewController.view.rightAnchor.constraint(equalTo: mainContainerViewController.view.rightAnchor).isActive = true
     }
 
     // MARK: - UIView Components
@@ -85,7 +91,6 @@ open class SONController: UINavigationController {
      */
     private let mainContainerViewController: UIViewController = {
         let viewController = UIViewController()
-        viewController.view.translatesAutoresizingMaskIntoConstraints = false
         return viewController
     }()
     
