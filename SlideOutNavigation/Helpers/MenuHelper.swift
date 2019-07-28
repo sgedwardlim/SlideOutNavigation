@@ -46,7 +46,7 @@ struct MenuHelper {
         }
     }
     
-    static func mapGestureStateToInteractor(gestureState:UIGestureRecognizerState, progress:CGFloat, interactor: Interactor?, triggerSegue: () -> Void){
+    static func mapGestureStateToInteractor(gestureState:UIGestureRecognizer.State, progress:CGFloat, interactor: Interactor?, triggerSegue: () -> Void){
         guard let interactor = interactor else { return }
         switch gestureState {
         case .began:

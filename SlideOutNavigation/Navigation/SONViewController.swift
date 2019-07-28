@@ -65,13 +65,13 @@ open class SONController: UINavigationController {
 
     private func didSetMainViewController() {
         guard let mainViewController = mainViewController else { return }
-        previousMainViewController?.willMove(toParentViewController: nil)
+        previousMainViewController?.willMove(toParent: nil)
         previousMainViewController?.view.removeFromSuperview()
-        previousMainViewController?.removeFromParentViewController()
+        previousMainViewController?.removeFromParent()
         previousMainViewController = mainViewController
 
-        mainContainerViewController.addChildViewController(mainViewController)
-        mainViewController.didMove(toParentViewController: mainContainerViewController)
+        mainContainerViewController.addChild(mainViewController)
+        mainViewController.didMove(toParent: mainContainerViewController)
         mainContainerViewController.view.addSubview(mainViewController.view)
         
         mainViewController.view.translatesAutoresizingMaskIntoConstraints = false
