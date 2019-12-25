@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
   s.resources = "menu.png"
   s.resources = "SlideOutNavigation/Supporting Files/Media.xcassets"
   # s.resources = "SlideOutNavigation/Supporting Files/Assets"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5' }
 
 end
