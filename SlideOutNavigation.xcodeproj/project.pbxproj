@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B15F86223C17139005E49D5 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B15F86123C17139005E49D5 /* SlideInPresentationAnimator.swift */; };
+		2B15F86423C17242005E49D5 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B15F86323C17242005E49D5 /* SlideInPresentationManager.swift */; };
+		2B15F86623C17314005E49D5 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B15F86523C17314005E49D5 /* SlideInPresentationController.swift */; };
 		2B3676E71F2AFA000066D36F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676E31F2AFA000066D36F /* Event.swift */; };
 		2B3676E81F2AFA000066D36F /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676E41F2AFA000066D36F /* Interactor.swift */; };
 		2B3676EA1F2AFA000066D36F /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3676E61F2AFA000066D36F /* MenuHelper.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B15F86123C17139005E49D5 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
+		2B15F86323C17242005E49D5 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
+		2B15F86523C17314005E49D5 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
 		2B3676E31F2AFA000066D36F /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		2B3676E41F2AFA000066D36F /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		2B3676E61F2AFA000066D36F /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
@@ -123,6 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				2BFF97621F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift */,
+				2B15F86123C17139005E49D5 /* SlideInPresentationAnimator.swift */,
+				2B15F86523C17314005E49D5 /* SlideInPresentationController.swift */,
+				2B15F86323C17242005E49D5 /* SlideInPresentationManager.swift */,
 			);
 			path = Animators;
 			sourceTree = "<group>";
@@ -261,11 +270,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BAEED1021CF17AD003FAECA /* SONMenuViewCell.swift in Sources */,
+				2B15F86423C17242005E49D5 /* SlideInPresentationManager.swift in Sources */,
+				2B15F86223C17139005E49D5 /* SlideInPresentationAnimator.swift in Sources */,
 				2B3676EA1F2AFA000066D36F /* MenuHelper.swift in Sources */,
 				2B3676E71F2AFA000066D36F /* Event.swift in Sources */,
 				2BAEED0F21CF17AD003FAECA /* SONMenuViewController.swift in Sources */,
 				2B3676E81F2AFA000066D36F /* Interactor.swift in Sources */,
 				2BFF976F1F23515600DCCDA3 /* PresentLeftSlideOutAnimator.swift in Sources */,
+				2B15F86623C17314005E49D5 /* SlideInPresentationController.swift in Sources */,
 				2BAEED0E21CF17AD003FAECA /* SONViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

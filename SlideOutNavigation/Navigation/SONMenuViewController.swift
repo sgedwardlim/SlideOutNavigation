@@ -45,13 +45,11 @@ open class SONMenuViewController: UIViewController {
         addSubviews()
         configureScrollViewLayout()
         configureStackViewLayout()
-        configureHiddenDismissButton()
     }
     
     private func addSubviews() {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        view.addSubview(hiddenDismissButton)
     }
     
     func configureScrollViewLayout() {
@@ -63,7 +61,7 @@ open class SONMenuViewController: UIViewController {
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         }
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        scrollView.rightAnchor.constraint(equalTo: hiddenDismissButton.leftAnchor).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     private func configureStackViewLayout() {
@@ -71,14 +69,7 @@ open class SONMenuViewController: UIViewController {
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
-        stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: MenuHelper.menuWidth).isActive = true
-    }
-    
-    private func configureHiddenDismissButton() {
-        hiddenDismissButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        hiddenDismissButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        hiddenDismissButton.leftAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        hiddenDismissButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     }
     
     private func didSetDataSource() {
@@ -116,13 +107,6 @@ open class SONMenuViewController: UIViewController {
         stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-    }()
-    
-    private lazy var hiddenDismissButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(handleHiddenDismissButtonSelection), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
     }()
     
     // MARK: - Actions
@@ -176,14 +160,6 @@ open class SONMenuViewController: UIViewController {
             // perhaps we should reset all the states..?
             break
         }
-    }
-    
-    @objc private func handleHiddenDismissButtonSelection() {
-        sonDelegate?.sonMenuViewController(willDismiss: self)
-        dismiss(animated: true, completion: { [weak self] in
-            guard let sself = self else { return }
-            sself.sonDelegate?.sonMenuViewController(didDismiss: sself)
-        })
     }
     
     /**

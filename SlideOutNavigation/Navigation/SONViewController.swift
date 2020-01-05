@@ -42,13 +42,14 @@ open class SONController: UINavigationController {
     
     private var previousMainViewController: UIViewController?
     private var leftSONMenuViewController: SONMenuViewController?
-    private let animator = PresentLeftSlideOutAnimator()
+    private let slideInDelegate = SlideInPresentationManager()
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         viewControllers = [mainContainerViewController]
         navigationItem.leftBarButtonItem = leftSONMenuButton
+        modalPresentationStyle = .custom
     }
     
     private func configureNavigationBar() {
@@ -122,7 +123,8 @@ open class SONController: UINavigationController {
             NSLog("WARNING: No SONMenuViewController returned as sonDataSource, defaulting to an empty SONViewController.")
             viewControllerToTransitionTo = SONMenuViewController()
         }
-        viewControllerToTransitionTo.transitioningDelegate = animator
+        viewControllerToTransitionTo.modalPresentationStyle = .custom
+        viewControllerToTransitionTo.transitioningDelegate = slideInDelegate
         sonDelegate?.sonController(self, willTransitionTo: viewControllerToTransitionTo)
         present(viewControllerToTransitionTo, animated: true, completion: { [weak self, weak viewControllerToTransitionTo] in
             guard let sself = self, let viewController = viewControllerToTransitionTo else { return }
