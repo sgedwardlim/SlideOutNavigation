@@ -90,7 +90,7 @@ open class SONController: UINavigationController {
      preserving the integretiy of the SONViewController, which is to always contain a way to navigate
      to the SONMenuViewController
      */
-    private let mainContainerViewController: UIViewController = {
+    public let mainContainerViewController: UIViewController = {
         let viewController = UIViewController()
         return viewController
     }()
